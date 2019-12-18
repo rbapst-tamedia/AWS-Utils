@@ -12,4 +12,4 @@ filters=[#{'Name': 'description', 'Values': ['Amazon Linux AMI*']},
     {'Name': 'owner-alias', 'Values': ['amazon']}]
 images = ec2.images.filter(Filters=filters).all()
 for i in images:
-    print(i.creation_date, i.id, i.description)
+    print(i.creation_date, i.id, i.name, i.description)
