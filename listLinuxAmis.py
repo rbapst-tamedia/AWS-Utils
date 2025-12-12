@@ -5,9 +5,10 @@ import json
 
 ec2 = boto3.resource('ec2')
 filters=[#{'Name': 'description', 'Values': ['Amazon Linux AMI*']},
-    {'Name': 'architecture', 'Values': ['x86_64']},
+    {'Name': 'description', 'Values': ['Amazon Linux 2023 AMI*']},
+    {'Name': 'architecture', 'Values': ['x86_64', 'BADarm64']},
     {'Name': 'root-device-type', 'Values': ['ebs']},
-    {'Name': 'block-device-mapping.volume-type', 'Values': ['gp2']},
+    {'Name': 'block-device-mapping.volume-type', 'Values': ['BADgp2', 'gp3']},
     {'Name': 'virtualization-type', 'Values': ['hvm']},
     {'Name': 'owner-alias', 'Values': ['amazon']}]
 images = ec2.images.filter(Filters=filters).all()
